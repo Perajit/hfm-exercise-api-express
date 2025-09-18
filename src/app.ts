@@ -1,10 +1,10 @@
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import cors, { CorsOptions } from 'cors';
-import 'dotenv/config';
+// import 'dotenv/config';
 import express from 'express';
-import morgan from 'morgan';
-import { logger } from './logger';
+// import morgan from 'morgan';
+// import { logger } from './logger';
 import authRouter from './modules/auth/auth.router';
 import userRouter from './modules/user/user.router';
 
@@ -29,12 +29,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// For logging
-app.use(morgan('combined', {
-  stream: {
-    write: text => logger.info(text),
-  },
-}));
+// // For logging
+// app.use(morgan('combined', {
+//   stream: {
+//     write: text => logger.info(text),
+//   },
+// }));
 
 // For routes
 app.use('/user', userRouter);
